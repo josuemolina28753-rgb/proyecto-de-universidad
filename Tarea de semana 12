@@ -1,26 +1,45 @@
-# Registro de Temperaturas Diarias con Matriz 3D y Bucles Anidados
+v# Programa: Explorando operadores en programación
+# Autor: Josue Daniel Molina Preciado
+# Lenguaje: Python
+# Objetivo: Demostrar el uso de operadores aritméticos, relacionales y lógicos
 
-# Ciudades
-ciudades = ["Quito", "Guayaquil", "Cuenca"]
+# Solicitar datos al usuario
+num1 = float(input("Ingresa el primer número: "))
+num2 = float(input("Ingresa el segundo número: "))
 
-# Días de la semana
-dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+# ===============================
+# A. Operadores Aritméticos
+# ===============================
 
-# Número de semanas
-num_semanas = 2
+# Suma
+suma = num1 + num2
+print(f"La suma de {num1} y {num2} es: {suma}")
 
-# Crear matriz 3D: ciudades x días x semanas
-# Cada temperatura es un número simulado (ejemplo)
-import random
-matriz_temperaturas = [[[random.randint(10, 35) for _ in range(num_semanas)] for _ in dias] for _ in ciudades]
+# División (con validación para evitar división por cero)
+division = num1 / num2 if num2 != 0 else "Indefinida (división por cero)"
+print(f"La división de {num1} entre {num2} es: {division}")
 
-# Calcular promedios por ciudad y semana
-for i, ciudad in enumerate(ciudades):
-    print(f"\nPromedios de temperatura en {ciudad}:")
-    for semana in range(num_semanas):
-        suma = 0
-        for dia in range(len(dias)):
-            suma += matriz_temperaturas[i][dia][semana]
-        promedio = suma / len(dias)
-        print(f"  Semana {semana + 1}: {promedio:.2f} °C")
+# ===============================
+# B. Operadores Relacionales
+# ===============================
+
+# Comparación de igualdad
+es_igual = num1 == num2
+print(f"¿Son los dos números iguales? {es_igual}")
+
+# Comparación de mayor que
+es_mayor = num1 > num2
+print(f"¿El primer número es mayor que el segundo? {es_mayor}")
+
+# ===============================
+# C. Operadores Lógicos
+# ===============================
+
+# Condición: ambos números son positivos Y distintos
+condicion1 = num1 > 0 and num1 != num2
+print(f"¿El primer número es positivo y diferente del segundo? {condicion1}")
+
+# Condición: al menos uno de los números es menor a 10
+condicion2 = num1 < 10 or num2 < 10
+print(f"¿Al menos uno de los números es menor que 10? {condicion2}")
 
