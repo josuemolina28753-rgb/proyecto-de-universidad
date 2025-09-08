@@ -1,45 +1,33 @@
-v# Programa: Explorando operadores en programación
-# Autor: Josue Daniel Molina Preciado
-# Lenguaje: Python
-# Objetivo: Demostrar el uso de operadores aritméticos, relacionales y lógicos
+# Definición de la matriz 3D: [ciudades][semanas][días]
+# Supongamos 3 ciudades, 2 semanas y 7 días por semana
+temperaturas = [
+    [  # Ciudad 1
+        [20, 21, 22, 23, 24, 25, 26],  # Semana 1
+        [19, 20, 21, 22, 23, 24, 25]   # Semana 2
+    ],
+    [  # Ciudad 2
+        [18, 19, 20, 21, 22, 23, 24],  # Semana 1
+        [17, 18, 19, 20, 21, 22, 23]   # Semana 2
+    ],
+    [  # Ciudad 3
+        [22, 23, 24, 25, 26, 27, 28],  # Semana 1
+        [21, 22, 23, 24, 25, 26, 27]   # Semana 2
+    ]
+]
 
-# Solicitar datos al usuario
-num1 = float(input("Ingresa el primer número: "))
-num2 = float(input("Ingresa el segundo número: "))
+# Nombres de ciudades y días para referencia
+ciudades = ["Ciudad A", "Ciudad B", "Ciudad C"]
+dias_semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
 
-# ===============================
-# A. Operadores Aritméticos
-# ===============================
+# 1. Crear la matriz 3D (ya definida arriba)
 
-# Suma
-suma = num1 + num2
-print(f"La suma de {num1} y {num2} es: {suma}")
+# 2. Acceder a temperaturas de una ciudad en un día específico
+# Ejemplo: Temperatura de Ciudad A, Semana 1, Lunes
+print(f"Temperatura de {ciudades[0]}, Semana 1, Lunes: {temperaturas[0][0][0]}°C")
 
-# División (con validación para evitar división por cero)
-division = num1 / num2 if num2 != 0 else "Indefinida (división por cero)"
-print(f"La división de {num1} entre {num2} es: {division}")
-
-# ===============================
-# B. Operadores Relacionales
-# ===============================
-
-# Comparación de igualdad
-es_igual = num1 == num2
-print(f"¿Son los dos números iguales? {es_igual}")
-
-# Comparación de mayor que
-es_mayor = num1 > num2
-print(f"¿El primer número es mayor que el segundo? {es_mayor}")
-
-# ===============================
-# C. Operadores Lógicos
-# ===============================
-
-# Condición: ambos números son positivos Y distintos
-condicion1 = num1 > 0 and num1 != num2
-print(f"¿El primer número es positivo y diferente del segundo? {condicion1}")
-
-# Condición: al menos uno de los números es menor a 10
-condicion2 = num1 < 10 or num2 < 10
-print(f"¿Al menos uno de los números es menor que 10? {condicion2}")
-
+# 3. y 4. Calcular y mostrar el promedio por ciudad y semana usando bucles anidados
+for i in range(len(ciudades)):
+    for j in range(len(temperaturas[i])):
+        suma = sum(temperaturas[i][j])  # Suma de temperaturas de la semana
+        promedio = suma / len(temperaturas[i][j])  # Promedio
+        print(f"Promedio de {ciudades[i]}, Semana {j+1}: {promedio:.2f}°C")
