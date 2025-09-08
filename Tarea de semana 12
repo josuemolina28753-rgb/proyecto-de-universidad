@@ -1,0 +1,26 @@
+# Registro de Temperaturas Diarias con Matriz 3D y Bucles Anidados
+
+# Ciudades
+ciudades = ["Quito", "Guayaquil", "Cuenca"]
+
+# Días de la semana
+dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+
+# Número de semanas
+num_semanas = 2
+
+# Crear matriz 3D: ciudades x días x semanas
+# Cada temperatura es un número simulado (ejemplo)
+import random
+matriz_temperaturas = [[[random.randint(10, 35) for _ in range(num_semanas)] for _ in dias] for _ in ciudades]
+
+# Calcular promedios por ciudad y semana
+for i, ciudad in enumerate(ciudades):
+    print(f"\nPromedios de temperatura en {ciudad}:")
+    for semana in range(num_semanas):
+        suma = 0
+        for dia in range(len(dias)):
+            suma += matriz_temperaturas[i][dia][semana]
+        promedio = suma / len(dias)
+        print(f"  Semana {semana + 1}: {promedio:.2f} °C")
+
